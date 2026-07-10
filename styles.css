@@ -2,13 +2,14 @@
    KANUKA FINANCIAL — DESIGN TOKENS
    ============================================ */
 :root {
-  --black: #000000;
-  --graphite: #111111;
-  --silver: #888888;
-  --white: #FFFFFF;
-  --border: rgba(255, 255, 255, 0.08);
-  --text-body: rgba(255, 255, 255, 0.6);
-  --text-dim: rgba(255, 255, 255, 0.35);
+  --bg: #FFFFFF;
+  --panel: #F2F2F2;
+  --silver: #ABABAB;
+  --dark: #3A3A3A;
+  --darker: #2A2A2A;
+  --border: rgba(171, 171, 171, 0.3);
+  --text-body: #5A5A5A;
+  --text-dim: #999999;
 
   --font-display: 'Playfair Display', serif;
   --font-body: 'Inter', sans-serif;
@@ -22,8 +23,8 @@
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 body {
-  background: var(--black);
-  color: var(--white);
+  background: var(--bg);
+  color: var(--dark);
   font-family: var(--font-body);
   font-size: 15px; font-weight: 300;
   line-height: 1.6;
@@ -40,20 +41,18 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 .cursor {
   position: fixed; top: 0; left: 0; z-index: 9999;
   width: 8px; height: 8px; border-radius: 50%;
-  background: var(--white);
+  background: var(--dark);
   pointer-events: none; transform: translate(-50%, -50%);
   transition: width 0.25s var(--ease), height 0.25s var(--ease), background 0.25s;
-  mix-blend-mode: difference;
 }
 .cursor-ring {
   position: fixed; top: 0; left: 0; z-index: 9998;
   width: 44px; height: 44px; border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.25);
+  border: 1px solid var(--silver);
   pointer-events: none; transform: translate(-50%, -50%);
   transition: width 0.35s var(--ease), height 0.35s var(--ease), border-color 0.3s;
-  mix-blend-mode: difference;
 }
-.cursor-ring.is-magnetic { width: 64px; height: 64px; border-color: rgba(255,255,255,0.5); }
+.cursor-ring.is-magnetic { width: 64px; height: 64px; border-color: var(--dark); }
 body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
 @media (hover: none), (pointer: coarse) { .cursor, .cursor-ring { display: none; } }
 
@@ -88,14 +87,14 @@ body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   padding: 28px 64px;
   display: flex; align-items: center;
-  background: rgba(0,0,0,0.4);
+  background: rgba(255,255,255,0.85);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
 .nav-inner { width: 100%; display: flex; align-items: center; justify-content: space-between; }
 .nav-logo {
   font-family: var(--font-body); font-weight: 500; font-size: 12px;
-  letter-spacing: 0.2em; text-transform: uppercase; color: var(--white);
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--dark);
 }
 .nav-links { display: flex; gap: 40px; }
 .nav-links a {
@@ -103,9 +102,9 @@ body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
   letter-spacing: 0.15em; text-transform: uppercase;
   color: var(--silver); transition: color 0.3s;
 }
-.nav-links a:hover { color: var(--white); }
+.nav-links a:hover { color: var(--dark); }
 .nav-toggle { display: none; flex-direction: column; gap: 6px; width: 24px; }
-.nav-toggle span { height: 1px; background: var(--white); }
+.nav-toggle span { height: 1px; background: var(--dark); }
 
 /* ============================================
    HERO
@@ -114,7 +113,7 @@ body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
 .hero-bg { position: absolute; inset: 0; }
 .hero-img-wrap { width: 100%; height: 100%; }
 .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.85) 100%); }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(242,242,242,0.4) 40%, rgba(255,255,255,0.9) 100%); }
 
 .hero-content { position: relative; z-index: 1; padding: 0 64px 80px; width: 100%; }
 .hero-label { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
@@ -124,6 +123,7 @@ body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
 .hero-title {
   font-family: var(--font-display); font-weight: 400;
   font-size: clamp(44px, 7.5vw, 110px); line-height: 1.05; letter-spacing: 0.02em;
+  color: var(--darker);
 }
 .hero-meta { display: flex; align-items: center; gap: 16px; margin-top: 32px; font-size: 12px; letter-spacing: 0.1em; color: var(--silver); text-transform: uppercase; }
 .meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--silver); }
@@ -150,13 +150,14 @@ body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
 /* ============================================
    VISION BAND
    ============================================ */
-.vision-band { padding: 140px 64px; border-top: 1px solid var(--border); background: var(--graphite); text-align: center; }
+.vision-band { padding: 140px 64px; border-top: 1px solid var(--border); background: linear-gradient(135deg, var(--silver), var(--darker)); text-align: center; }
 .vision-inner { max-width: 900px; margin: 0 auto; }
 .vision-quote {
   font-family: var(--font-display); font-weight: 400; font-style: italic;
   font-size: clamp(24px, 3vw, 40px); line-height: 1.4; letter-spacing: 0.02em;
+  color: #FFFFFF;
 }
-.vision-attr { margin-top: 32px; font-size: 13px; letter-spacing: 0.1em; color: var(--silver); }
+.vision-attr { margin-top: 32px; font-size: 13px; letter-spacing: 0.1em; color: rgba(255,255,255,0.65); }
 
 /* ============================================
    SERVICES
@@ -171,10 +172,10 @@ body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
 
 .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
 .service-card {
-  background: var(--black); padding: 56px 44px; position: relative;
+  background: var(--bg); padding: 56px 44px; position: relative;
   transition: background 0.4s;
 }
-.service-card:hover { background: var(--graphite); }
+.service-card:hover { background: var(--panel); }
 .service-num { font-size: 11px; letter-spacing: 0.15em; color: var(--text-dim); display: block; margin-bottom: 20px; }
 .service-card h3 { font-family: var(--font-display); font-weight: 400; font-size: 24px; letter-spacing: 0.03em; margin-bottom: 16px; }
 .service-card p { font-size: 14px; line-height: 1.8; color: var(--text-body); max-width: 400px; }
@@ -191,7 +192,7 @@ body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
    ============================================ */
 .stats-band { padding: 80px 64px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .stats-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
-.stat-item { background: var(--black); padding: 48px 32px; text-align: center; }
+.stat-item { background: var(--bg); padding: 48px 32px; text-align: center; }
 .stat-number { font-family: var(--font-display); font-size: clamp(36px, 4vw, 56px); font-weight: 400; letter-spacing: 0.04em; display: inline; }
 .stat-suffix { font-family: var(--font-body); font-size: 16px; letter-spacing: 0.1em; color: var(--silver); }
 .stat-label { display: block; margin-top: 12px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); }
@@ -210,7 +211,7 @@ body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
 .team-card { text-align: center; }
 .team-portrait {
   overflow: hidden; aspect-ratio: 3/4;
-  background: var(--graphite); margin-bottom: 20px;
+  background: var(--panel); margin-bottom: 20px;
 }
 .team-portrait img {
   width: 100%; height: 100%; object-fit: cover;
@@ -251,11 +252,11 @@ body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
   border: 1px solid var(--border);
   margin-bottom: 80px;
 }
-.footer-col { background: var(--black); padding: 48px 40px; }
+.footer-col { background: var(--bg); padding: 48px 40px; }
 .footer-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); display: block; margin-bottom: 16px; }
 .footer-col p { font-size: 14px; line-height: 1.8; color: var(--text-body); }
 .footer-col a { border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: color 0.3s, border-color 0.3s; }
-.footer-col a:hover { color: var(--white); border-color: var(--white); }
+.footer-col a:hover { color: var(--dark); border-color: var(--dark); }
 
 .footer-bottom {
   display: flex; justify-content: space-between; align-items: center;
@@ -264,7 +265,7 @@ body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
 }
 .footer-social { display: flex; gap: 28px; }
 .footer-social a { color: var(--silver); transition: color 0.3s; }
-.footer-social a:hover { color: var(--white); }
+.footer-social a:hover { color: var(--dark); }
 
 /* ============================================
    RESPONSIVE
