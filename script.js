@@ -15,7 +15,7 @@
 
     // Hero elements
     gsap.from('.hero-badge',{opacity:0,y:16,duration:.6,delay:.1,ease:'power2.out'});
-    gsap.from('.hero-title',{opacity:0,y:30,duration:.9,delay:.2,ease:'power3.out'});
+    gsap.from('.hero-title',{y:40,duration:.9,delay:.2,ease:'power3.out'});
     gsap.from('.hero-sub',{opacity:0,y:20,duration:.7,delay:.4,ease:'power2.out'});
     gsap.from('.hero-actions',{opacity:0,y:16,duration:.6,delay:.55,ease:'power2.out'});
     gsap.from('.hero-img',{opacity:0,x:40,duration:1,delay:.3,ease:'power3.out'});
