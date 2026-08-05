@@ -30,7 +30,7 @@
 .hero-badge{display:flex;align-items:center;gap:12px;margin-bottom:32px}
 .avatar-stack{display:flex}.avatar-stack img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid #fff;margin-left:-10px}.avatar-stack img:first-child{margin-left:0}
 .hero-badge span{font-size:14px;color:var(--text)}.hero-badge strong{color:var(--dark)}
-.hero-title{font-family:var(--font-display);font-weight:400;font-size:clamp(36px,5vw,60px);line-height:1.15;margin-bottom:20px}
+.hero-title{font-family:var(--font-display);font-weight:400;font-size:clamp(36px,5vw,60px);line-height:1.15;margin-bottom:20px;color:var(--dark)}
 .hero-sub{font-size:16px;color:var(--text);line-height:1.7;max-width:440px;margin-bottom:32px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
 .hero-img{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/5}
