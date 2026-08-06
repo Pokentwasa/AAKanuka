@@ -118,6 +118,15 @@ input,select,textarea{width:100%;padding:16px 20px;font-family:var(--font-body);
 input::placeholder,textarea::placeholder{color:var(--text-dim)}input:focus,select:focus,textarea:focus{border-color:var(--accent)}
 textarea{resize:none}.form-note{font-size:12px;color:var(--text-dim)}
 
+
+/* CLIENT LOGO STRAP */
+.client-strap{background:var(--dark);padding:48px 64px}
+.client-strap-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center;gap:48px}
+.client-label{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);white-space:nowrap}
+.client-logos{display:flex;align-items:center;justify-content:center;gap:56px;flex:1}
+.client-logo{height:40px;width:auto;opacity:.45;filter:brightness(0) invert(1);transition:opacity .3s}
+.client-logo:hover{opacity:.8}
+
 /* RESPONSIVE */
 @media(max-width:1000px){.hero-inner,.about-preview-inner,.why-content,.about-full-inner,.contact-page-inner{grid-template-columns:1fr;gap:40px}.svc-grid{grid-template-columns:repeat(2,1fr)}.stats-inner{grid-template-columns:repeat(2,1fr)}.team-grid{grid-template-columns:repeat(2,1fr)}.footer-top{grid-template-columns:1fr}.sf-card{grid-template-columns:1fr}.values-grid{grid-template-columns:1fr}}
-@media(max-width:700px){.nav{top:8px;width:calc(100% - 16px);padding:12px 20px}.nav-links,.nav-cta{display:none}.nav-toggle{display:flex}.hero,.about-preview,.services-preview,.why,.team,.cta-band,.page-hero,.about-full,.values,.services-full,.contact-page{padding-left:24px!important;padding-right:24px!important}.hero{padding-top:100px}.svc-grid{grid-template-columns:1fr}.stats-inner{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.hero-img{aspect-ratio:16/10}.footer-inner{padding:48px 24px 24px}.footer-links-grid{flex-direction:column;gap:24px}}
+@media(max-width:700px){.nav{top:8px;width:calc(100% - 16px);padding:12px 20px}.nav-links,.nav-cta{display:none}.nav-toggle{display:flex}.hero,.about-preview,.services-preview,.why,.team,.cta-band,.page-hero,.about-full,.values,.services-full,.contact-page{padding-left:24px!important;padding-right:24px!important}.hero{padding-top:100px}.client-strap-inner{flex-direction:column;gap:24px}.client-logos{flex-wrap:wrap;gap:32px}.svc-grid{grid-template-columns:1fr}.stats-inner{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.hero-img{aspect-ratio:16/10}.footer-inner{padding:48px 24px 24px}.footer-links-grid{flex-direction:column;gap:24px}}
