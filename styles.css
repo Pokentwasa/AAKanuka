@@ -3,7 +3,7 @@
 
 /* NAV */
 .nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:200;width:calc(100% - 32px);max-width:1300px;background:var(--bg);border-radius:var(--radius);padding:14px 32px;box-shadow:0 2px 24px rgba(0,0,0,.06);border:1px solid var(--border)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between}.logo-img{height:28px;width:auto}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}.logo-img{height:50px;width:auto}
 .nav-links{display:flex;gap:32px}.nav-links a{font-size:14px;color:var(--text);transition:color .2s}.nav-links a:hover,.nav-links a.is-active{color:var(--dark);font-weight:500}
 .nav-cta{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;background:var(--accent);color:#fff;font-size:14px;font-weight:500;border-radius:var(--radius);transition:background .25s}.nav-cta:hover{background:var(--accent-hover)}.nav-cta span{font-size:12px}
 .nav-toggle{display:none;flex-direction:column;gap:5px;width:22px}.nav-toggle span{height:2px;background:var(--dark);display:block;border-radius:2px}
