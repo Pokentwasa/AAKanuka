@@ -47,4 +47,104 @@
     const links=document.querySelector('.nav-links');
     if(toggle&&links){toggle.addEventListener('click',()=>{links.classList.toggle('is-open');toggle.classList.toggle('is-open')})}
   });
+
+
+  // ==========================================
+  // EXIT INTENT POPUP
+  // ==========================================
+  const exitPopup = document.getElementById('exitPopup');
+  const exitClose = document.getElementById('exitClose');
+  let exitShown = false;
+
+  if (exitPopup) {
+    document.addEventListener('mouseout', (e) => {
+      if (exitShown) return;
+      if (e.clientY < 5 && e.relatedTarget === null) {
+        exitPopup.classList.add('is-visible');
+        exitShown = true;
+      }
+    });
+
+    if (exitClose) exitClose.addEventListener('click', () => exitPopup.classList.remove('is-visible'));
+    exitPopup.addEventListener('click', (e) => { if (e.target === exitPopup) exitPopup.classList.remove('is-visible'); });
+
+    const exitForm = document.getElementById('exitForm');
+    if (exitForm) {
+      exitForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = exitForm.querySelector('.btn');
+        btn.textContent = 'Booked ✓';
+        btn.disabled = true;
+        setTimeout(() => exitPopup.classList.remove('is-visible'), 1500);
+      });
+    }
+  }
+
+  // ==========================================
+  // SLIDE-IN CTA — appears after 30s
+  // ==========================================
+  const slideCta = document.getElementById('slideCta');
+  const slideClose = document.getElementById('slideCtaClose');
+
+  if (slideCta) {
+    setTimeout(() => {
+      slideCta.classList.add('is-visible');
+    }, 30000);
+
+    if (slideClose) slideClose.addEventListener('click', () => slideCta.classList.remove('is-visible'));
+  }
+
+  // ==========================================
+  // SOCIAL PROOF TOASTS — rotating
+  // ==========================================
+  const proofToast = document.getElementById('proofToast');
+  if (proofToast) {
+    const proofs = [
+      { text: 'Tax clearance completed for a Queenstown retail business', time: '2 hours ago' },
+      { text: 'New BEE certification processed for a construction firm', time: '5 hours ago' },
+      { text: 'Annual financial statements submitted for 3 clients', time: 'Yesterday' },
+      { text: 'VAT registration completed for a new startup', time: '1 day ago' },
+    ];
+
+    let proofIndex = 0;
+
+    function showProof() {
+      const p = proofs[proofIndex % proofs.length];
+      proofToast.innerHTML = p.text + '<strong>' + p.time + '</strong>';
+      proofToast.classList.add('is-visible');
+
+      setTimeout(() => {
+        proofToast.classList.remove('is-visible');
+        proofIndex++;
+      }, 4000);
+    }
+
+    // First toast after 15s, then every 45s
+    setTimeout(showProof, 15000);
+    setInterval(showProof, 45000);
+  }
+
+  // ==========================================
+  // GA4 CONVERSION EVENTS
+  // ==========================================
+  // Track WhatsApp clicks
+  document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+    link.addEventListener('click', () => {
+      if (typeof gtag !== 'undefined') gtag('event', 'whatsapp_click', { event_category: 'conversion' });
+    });
+  });
+
+  // Track phone clicks
+  document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+    link.addEventListener('click', () => {
+      if (typeof gtag !== 'undefined') gtag('event', 'phone_click', { event_category: 'conversion' });
+    });
+  });
+
+  // Track form submissions
+  document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', () => {
+      if (typeof gtag !== 'undefined') gtag('event', 'form_submit', { event_category: 'conversion', event_label: form.id || 'unknown' });
+    });
+  });
 })();
